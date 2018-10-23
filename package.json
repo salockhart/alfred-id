@@ -1,6 +1,6 @@
 {
   "name": "alfred-id",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Generate IDs using Alfred",
   "license": "MIT",
   "repository": "salockhart/alfred-id",
@@ -28,7 +28,9 @@
     "alfy"
   ],
   "dependencies": {
-    "alfy": "^0.6.0"
+    "alfy": "^0.6.0",
+    "mongoid-js": "^1.1.3",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "alfy-test": "^0.3.0",
