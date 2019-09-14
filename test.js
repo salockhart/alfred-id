@@ -1,10 +1,10 @@
+import alfyTest from '@salockhart/alfy-test';
 import test from 'ava';
-import alfyTest from 'alfy-test';
 
 const guidRegex = /(^([0-9A-Fa-f]{8}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{4}[-][0-9A-Fa-f]{12})$)/;
 const mongoRegex = /^[0-9a-fA-F]{24}$/;
 
-test(async t => {
+test('result should include GUID', async t => {
 	const alfy = alfyTest();
 	const result = await alfy();
 
@@ -12,6 +12,11 @@ test(async t => {
 	t.regex(result[0].subtitle, guidRegex);
 	t.regex(result[0].arg, guidRegex);
 	t.deepEqual(result[0].subtitle, result[0].arg);
+});
+
+test('result should include MongoDB ObjectID', async t => {
+	const alfy = alfyTest();
+	const result = await alfy();
 
 	t.deepEqual(result[1].title, 'MongoDB ObjectID');
 	t.regex(result[1].subtitle, mongoRegex);
